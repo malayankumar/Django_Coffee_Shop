@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Home
+{% endblock %}
+{% block content %}
+
+<div class="slide_bar">
+    <div id="productCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            {% for product in product_list %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <img src="{{ product.pic.url }}" class="d-block w-100" alt="Image not found">
+            </div>
+            {% endfor %}
+        </div>
+    
+        <!-- Carousel Navigation Buttons -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    
+</div>
+
+<div class="home">
+    <div class="container">
+        {% for product in product_list %}
+        <div class="card">
+            <div class="card_img">
+                <img src="{{product.pic}}" alt="image not found">
+            </div>
+            <div class="card_text">
+                <h4>
+                    <a href="{% url 'prod_details' product.id %}">
+                        {{product.name}}
+                    </a>
+                </h4>
+                <h6>Price : <ins>{{product.price}}</ins></h6>
+                <h6>Stock : <ins>{{product.stock}}</ins></h6>
+                <p> Description :
+                    <br><ins>{{product.desc}}</ins>
+                </p>
+                {% if user.is_staff %}
+                <a href="{% url 'prod_details' product.id %}">
+                    <button type="button">Edit the product</button>
+                </a>
+                {% else %}
+                <a href="{% url 'add_to_cart' product.id %}">
+                    <button type="button">Add to cart</button>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}

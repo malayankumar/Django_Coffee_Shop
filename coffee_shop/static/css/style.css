@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin-top: 75px;
+    margin-bottom: 80px;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+
+    main {
+        margin: 0 auto;
+        width: 100%;
+        padding: 20px;
+
+        div.home {
+            div.container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+
+                div.card {
+                    /* border: 2px solid; */
+                    box-shadow: 1px 2px 5px 2px black;
+                    border-radius: 15px;
+                    height: 490px;
+                    width: 270px;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    overflow: hidden;
+                    background-color: white;
+                    transition-duration: 2s;
+
+                    div.card_img {
+                        height: 50%;
+                        width: 100%;
+
+                        img {
+                            height: 100%;
+                            width: 100%;
+                            object-fit: fill;
+                        }
+                    }
+
+                    div.card_text {
+                        height: 50%;
+                        text-align: center;
+
+                        h4 {
+                            margin-bottom: 20px;
+                            height: 15px;
+
+                            a {
+                                color: black;
+                            }
+                        }
+
+                        h6 {
+                            height: 10px;
+                        }
+
+                        p {
+                            height: 100px;
+                            padding: 4px;
+                            overflow-y: scroll;
+                        }
+
+                        button {
+                            height: 50px;
+                            width: 150px;
+                            /* padding: 2px; */
+                            border-radius: 8px;
+                            color: white;
+                            font-weight: 600;
+                            background-color: rgb(16, 102, 231);
+                        }
+                    }
+                }
+
+                div.card:hover {
+                    background-color: rgb(255, 255, 255);
+                    box-shadow: 1px 2px 5px 2px black;
+                    transform: scale(1.10);
+                    transition-duration: 0.5s;
+                }
+            }
+        }
+    }
+
+    .description {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        cursor: pointer;
+        max-width: 300px;
+        /* Adjust as needed */
+    }
+
+    .read-more {
+        color: blue;
+        cursor: pointer;
+        display: inline;
+    }
+}
+
+.slide_bar{
+    #productCarousel {
+        width: 1000px;
+        height: 400px;
+        margin: auto; /* Center the carousel */
+    }
+    
+    #productCarousel .carousel-inner {
+        width: 100%;
+        height: 100%;
+    }
+    
+    #productCarousel .carousel-item img {
+        width: 1000px; /* Ensure image fills the width */
+        height: 400px; /* Ensure image fills the height */
+        object-fit:fill; /* Crop image to fit */
+        border-radius: 10px; /* Optional: Add rounded corners */
+    }
+}
+
+
+header {
+    position: fixed;
+    z-index: 5;
+    left: 0;
+    top: 0;
+    width: 100%;
+    color: #523707;
+    text-align: center;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    color: #212529;
+    text-align: center;
+}
