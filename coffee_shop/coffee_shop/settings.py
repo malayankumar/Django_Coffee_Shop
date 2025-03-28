@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'mainapp',
     'authentication',
     'cart',
+    'orders',
+    'payments',
 ]
 
 MIDDLEWARE = [
@@ -102,6 +104,17 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Razorpay configs
+
+RAZORPAY_KEY_ID = "rzp_test_7hFOWv0KBu9gqM"  # Replace with your Key ID
+RAZORPAY_KEY_SECRET = "YY62PTpTT17nbGvEGrTzgXAf"
+
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://api.razorpay.com',  # Add Razorpay's domain
+]
+TIME_ZONE = 'Asia/Kolkata'  # Change to your local time zone
+USE_TZ = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/

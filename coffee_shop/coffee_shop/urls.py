@@ -23,8 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('mainapp.urls')),
     path('cart/', include('cart.urls')),
-    # path('orders/', include('orders.urls')),
-    # path('payments/', include('payments.urls')),
+    path('orders/', include('orders.urls')),
+    path('payments/', include('payments.urls')),
     path('auth/', include('authentication.urls')),  # Use this for custom authentication views
     path('accounts/', include('django.contrib.auth.urls')),  # Default Django auth URLs
 ]
