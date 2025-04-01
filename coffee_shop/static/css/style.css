@@ -5,6 +5,7 @@
 }
 
 body {
+    /* background-color: #eb64119d; */
     margin-top: 75px;
     margin-bottom: 80px;
     width: 100%;
@@ -17,6 +18,7 @@ body {
         padding: 20px;
 
         div.home {
+            
             div.container {
                 display: flex;
                 flex-wrap: wrap;
@@ -81,7 +83,7 @@ body {
                 }
 
                 div.card:hover {
-                    background-color: rgb(255, 255, 255);
+                    background-color: #eb64119d;
                     box-shadow: 1px 2px 5px 2px black;
                     transform: scale(1.10);
                     transition-duration: 0.5s;
@@ -111,8 +113,8 @@ body {
 
 .slide_bar{
     #productCarousel {
-        width: 1000px;
-        height: 400px;
+        width: 100%;
+        height: 600px;
         margin: auto; /* Center the carousel */
     }
     
@@ -122,10 +124,9 @@ body {
     }
     
     #productCarousel .carousel-item img {
-        width: 1000px; /* Ensure image fills the width */
-        height: 400px; /* Ensure image fills the height */
+        width: 100%; /* Ensure image fills the width */
+        height: 600px; /* Ensure image fills the height */
         object-fit:fill; /* Crop image to fit */
-        border-radius: 10px; /* Optional: Add rounded corners */
     }
 }
 
