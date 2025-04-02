@@ -1,12 +1,99 @@
-{%extends 'base.html'%}
-{%load static%}
-{% block title %}
-Signup
-{% endblock %}
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Signup{% endblock %}
+
 {% block content %}
-<form method="post">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit">Sign up</button>
-</form>
+<div class="signup-container">
+    <div class="signup-box">
+        <h2>Signup</h2>
+        <form method="post">
+            {% csrf_token %}
+            <label for="id_username">Username:</label>
+            {{ form.username }}
+            <span class="input-hint">Required. 25 characters or fewer. Letters, digits and @/./+/-/_ only.</span>
+            
+            <label for="id_password1">Password:</label>
+            {{ form.password1 }}
+            <ul class="password-rules">
+                <li>Your password can't be too similar to your other personal information.</li>
+                <li>Your password must contain at least 8 characters.</li>
+                <li>Your password can't be a commonly used password.</li>
+                <li>Your password can't be entirely numeric.</li>
+            </ul>
+            
+            <label for="id_password2">Password confirmation:</label>
+            {{ form.password2 }}
+            <span class="input-hint">Enter the same password as before, for verification.</span>
+            
+            <button type="submit" class="signup-button">Sign up</button>
+        </form>
+    </div>
+</div>
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(to right, #ffffff, #ffffff);
+        font-family: Arial, sans-serif;
+    }
+    .signup-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .signup-box {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: left;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .signup-box h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .signup-box label {
+        display: block;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+    .signup-box input {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .input-hint {
+        font-size: 12px;
+        color: #666;
+        display: block;
+        margin-bottom: 10px;
+    }
+    .password-rules {
+        font-size: 12px;
+        color: #666;
+        margin-top: 5px;
+        padding-left: 20px;
+    }
+    .signup-button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 15px;
+        background: rgb(4, 165, 115);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    .signup-button:hover {
+        background: rgb(4, 165, 115);
+    }
+</style>
 {% endblock %}
