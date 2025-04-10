@@ -1,22 +1,21 @@
 {% extends 'base.html' %}
 
-
 {% block title %}
 About 
 {% endblock %}
 
 {% block content %}
-    <ul>
-        {% for student in students %}
-            <li>{{student}}</li>
-        {% endfor %}
-    </ul>
+<div class="container" style="max-width: 800px; margin: auto; padding: 2rem;">
+    <h1 style="font-size: 2.5rem; color: #4b3621; margin-bottom: 1rem;">About Brew & Bites</h1>
 
-    <!-- Conditionals -->
-     {% if slept %}
-     I slept
-     {% else %}
-     Did not sleep
-     {% endif %}
-    
+    <p>Founded in 2025, <strong>Brew & Bites</strong> was born from a love of simple pleasures — a good cup of tea, rich aromatic coffee, and indulgent chocolate. We believe that life’s everyday moments deserve to feel a little more special. That’s why we’ve crafted a brand focused on quality, comfort, and flavor — all delivered right to your doorstep.</p>
+
+    <p>At Brew & Bites, we are proudly <strong>online-only</strong>, giving us the freedom to focus on what really matters: great products and an even better experience. From handpicked teas to decadent chocolates, every item is made with care, thoughtfully packaged, and wrapped in our signature minimalist style.</p>
+
+    <p>We’re not here to just sell you something — we’re here to be a part of your daily rituals, your cozy evenings, your moments of pause.</p>
+
+    <h2 style="color: #6d4c41; font-size: 1.5rem; margin-top: 2rem;">Tastefully crafted. Mindfully made. Always delivered with warmth.</h2>
+
+    <p>Welcome to <strong>Brew & Bites</strong> — where your perfect sip and sweet bite await.</p>
+</div>
 {% endblock %}

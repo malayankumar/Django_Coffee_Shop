@@ -46,7 +46,7 @@ def create_order(request):
 @login_required
 def order_history(request):
     """Display the order history of the user."""
-    orders = Order.objects.filter(user=request.user).prefetch_related('order_details').order_by('-order_date')
+    orders = Order.objects.filter(user=request.user).prefetch_related('order_details').order_by('id')
     return render(request, 'order_history.html', {'orders': orders})
 
 @login_required
