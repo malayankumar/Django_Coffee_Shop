@@ -1,29 +1,53 @@
 {% extends 'base.html' %}
 
 {% block title %}
-
+Select Address
 {% endblock %}
 
 {% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
 
-{% if addresses %}
-<form method="post">
-    {% csrf_token %}
-    <h3>Select an Address</h3>
-    <ul>
-        {% for address in addresses %}
-        <li>
-            <label>
-                <input type="radio" name="address" value="{{ address.id }}">
-                {{ address.full_name }}, {{ address.address_line1 }}, {{ address.city }}, {{ address.state }} - {{ address.pincode }}
-            </label>
-        </li>
-        {% endfor %}
-    </ul>
-    <button type="submit" class="btn btn-primary">Select Address</button>
-</form>
-{% endif %}
-<a href="{% url 'add_address'  %}?next={{request.path}}" class="btn btn-secondary">Add address</a>
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Select Shipping Address</h4>
+                </div>
 
+                <div class="card-body">
+                    {% if addresses %}
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="list-group">
+                            {% for address in addresses %}
+                            <label class="list-group-item list-group-item-action d-flex align-items-start gap-3">
+                                <input class="form-check-input mt-1" type="radio" name="address" value="{{ address.id }}">
+                                <div>
+                                    <strong>{{ address.full_name }}</strong><br>
+                                    {{ address.address_line1 }},
+                                    {% if address.address_line2 %}{{ address.address_line2 }}, {% endif %}
+                                    {{ address.city }}, {{ address.state }} - {{ address.pincode }}
+                                </div>
+                            </label>
+                            {% endfor %}
+                        </div>
+                        <div class="text-end mt-4">
+                            <button type="submit" class="btn btn-success">Use Selected Address</button>
+                        </div>
+                    </form>
+                    {% else %}
+                        <div class="alert alert-info">No saved addresses found.</div>
+                    {% endif %}
 
+                    <div class="mt-4 text-end">
+                        <a href="{% url 'add_address' %}?next={{ request.path }}" class="btn btn-outline-primary">
+                            Add New Address
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
 {% endblock %}
